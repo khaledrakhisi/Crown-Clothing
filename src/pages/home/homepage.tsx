@@ -1,4 +1,4 @@
-import Directory from  "../../components/Directory";
+import Directory from  "../../shared/components/Directory";
 
 import "./homepage.scss";
 
