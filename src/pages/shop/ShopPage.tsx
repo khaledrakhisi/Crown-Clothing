@@ -4,7 +4,7 @@ import ICollection from "../../shared/interfaces/collection";
 import CollectionPreview from "./components/CollectionPreview";
 
 interface IProps {
-  id: number;
+  
 }
 interface IState {
   collections: Array<ICollection>;
