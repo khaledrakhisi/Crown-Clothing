@@ -9,13 +9,14 @@ interface IProps{
     type: string,
     value: string,
     name: string,
+    required?: boolean,
 }
 
 const FormInput: React.FunctionComponent<IProps> = ({id, label, onChange, ...otherProps}) => {
 
     return <div className="group">
         <label className={`${otherProps.value.length ? "shrink" : ""} form-input-label`} htmlFor={id} >{label}</label>
-        <input className="form-input" id={id} type={otherProps.type} onChange={onChange} value={otherProps.value} name={otherProps.name}/>
+        <input className="form-input" id={id} onChange={onChange} {...otherProps}/>
     </div>
 }
 

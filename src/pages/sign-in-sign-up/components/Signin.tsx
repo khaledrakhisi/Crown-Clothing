@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../../../shared/components/Button";
 import FormInput from "../../../shared/components/FormInput";
 
 import "./Signin.scss";
@@ -34,7 +35,7 @@ class Signin extends React.Component<IProps, IState> {
     }
 
     eh_submit = (e: React.FormEvent<HTMLFormElement>): void => {
-        e.preventDefault();
+        // e.preventDefault();
     }
 
     render(){
@@ -44,11 +45,10 @@ class Signin extends React.Component<IProps, IState> {
                 <span>Sign in with your email and password</span>
                 
                 <form onSubmit={this.eh_submit}>                    
-                    <FormInput id="txt_email" label="email" name="email" type="email" onChange={this.eh_inputChange} value={this.state.email}/>
+                    <FormInput id="txt_email" label="email" name="email" type="email" onChange={this.eh_inputChange} value={this.state.email} required/>
+                    <FormInput id="txt_password" label="password" name="password" type="password" onChange={this.eh_inputChange}  value={this.state.password} required/>                    
 
-                    <FormInput id="txt_password" label="password" name="password" type="password" onChange={this.eh_inputChange}  value={this.state.password}/>
-
-                    <button id="btn_signin">SIGN IN</button>
+                    <Button id="btn_signin" type="submit"> SIGN IN </Button>
                 </form>
             </div>
         );
