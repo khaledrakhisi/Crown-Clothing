@@ -5,11 +5,13 @@ import "./Button.scss"
 interface IProps{
     id: string,
     type: "button" | "submit" | "reset" | undefined,
+    onClick?: React.MouseEventHandler<HTMLButtonElement>,
+    isGoogleSignIn?: boolean,
 }
 
-const Button : React.FunctionComponent<IProps> = ({id, children, ...otherProps}) => {
+const Button : React.FunctionComponent<IProps> = ({id, isGoogleSignIn, children, ...otherProps}) => {
     return (
-        <button className="custom-button" id={id} {...otherProps}>{children}</button>
+        <button className= {`${isGoogleSignIn ? "signin-with-google" : ""} custom-button`} id={id} {...otherProps}>{children}</button>
     );
 }
 

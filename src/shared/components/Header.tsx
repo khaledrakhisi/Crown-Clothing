@@ -1,10 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
+import firebase from "firebase/compat/app";
 
 import "./Header.scss";
+import { auth } from "../../firebase/firebase.utils";
 
-const Header: React.FunctionComponent = () => {
+export interface IProps {
+  currentLoggedinUser: firebase.User | null;
+}
+
+const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -13,11 +19,20 @@ const Header: React.FunctionComponent = () => {
 
       <div className="options">
         <Link className="option" to="/shop">
-          SHOP
+          shop
         </Link>
+
         <Link className="option" to="/contact">
-          CONTACT
+          contact
         </Link>
+
+        {currentLoggedinUser ? (
+          <div className="option" onClick={()=>auth.signOut()}>{`sign out ${currentLoggedinUser.displayName}`}</div>
+        ) : (
+          <Link className="option" to="/signin">
+            sign in
+          </Link>
+        )}
       </div>
     </div>
   );
