@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../shared/components/Button";
 import FormInput from "../../../shared/components/FormInput";
-import { signInWithGoogle } from "../../../firebase/firebase.utils";
+import { signInWithGoogle } from "../../../shared/utility/firebase.utils";
 
 import "./Signin.scss";
 
@@ -68,8 +68,7 @@ class Signin extends React.Component<IProps, IState> {
             </Button>
 
             <Button
-              id="btn_signin"
-              type="submit"
+              id="btn_signinwithgoogle"
               onClick={signInWithGoogle}
               isGoogleSignIn
             >              

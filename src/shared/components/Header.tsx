@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
-import firebase from "firebase/compat/app";
+import { auth } from "../utility/firebase.utils";
+import { IUser } from "../interfaces/user";
 
 import "./Header.scss";
-import { auth } from "../../firebase/firebase.utils";
 
 export interface IProps {
-  currentLoggedinUser: firebase.User | null;
+  currentLoggedinUser: IUser | null;
 }
 
 const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {

@@ -5,8 +5,9 @@ import HomePage from "./pages/home/homepage";
 import ShopPage from "./pages/shop/ShopPage";
 import Header from "./shared/components/Header";
 import Signin_Signup from "./pages/sign-in-sign-up/SigninPage";
-import {auth} from "./firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "./shared/utility/firebase.utils";
 import firebase from "firebase/compat/app";
+import {IUser} from "./shared/interfaces/user";
 
 import "./App.css";
 
@@ -14,7 +15,7 @@ interface IProps{
 
 }
 interface IState{
-  currentLoggedinUser: firebase.User | null,
+  currentLoggedinUser: IUser | null,
 }
 
 class App extends React.Component<IProps, IState> {
@@ -29,11 +30,29 @@ class App extends React.Component<IProps, IState> {
   unsubscribeFromAuth: firebase.Unsubscribe | null = null;
 
   componentDidMount(){
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user=>{
-      this.setState({currentLoggedinUser: user})
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth=>{
 
-      console.log(user);
-      
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth, null);
+
+        userRef?.onSnapshot(snapshot=>{
+          // console.log(snapshot.data());
+          
+          const {displayName, email}:any = snapshot.data();
+
+          this.setState({
+            currentLoggedinUser : {
+              id: snapshot.id,
+              displayName,
+              email
+            }            
+          });
+          console.log(this.state);
+          
+        });
+
+      } 
+
     });
   }
 

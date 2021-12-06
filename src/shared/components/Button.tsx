@@ -4,7 +4,7 @@ import "./Button.scss"
 
 interface IProps{
     id: string,
-    type: "button" | "submit" | "reset" | undefined,
+    type?: "button" | "submit" | "reset",
     onClick?: React.MouseEventHandler<HTMLButtonElement>,
     isGoogleSignIn?: boolean,
 }
