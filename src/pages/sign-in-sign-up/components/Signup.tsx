@@ -41,14 +41,14 @@ class Signup extends React.Component<IProps, IState> {
     const {email, displayName, password, confirmPassword} = this.state;
 
     if(password !== confirmPassword){
-        alert("passwords arn't match")
+        alert("passwords aren't match");
         return;
     }
 
     try {
         const {user} = await auth.createUserWithEmailAndPassword(email, password);
 
-        await createUserProfileDocument(user, displayName);
+        await createUserProfileDocument(user, {displayName});
 
         this.setState({
             email: "",
@@ -59,17 +59,17 @@ class Signup extends React.Component<IProps, IState> {
 
     } catch (error) {
         console.error(error);
-        
     }    
   };
 
   render() {
     return (
       <div className="signup">
-        <div className="title">I don't have an account</div>
+        <h2 className="title">I don't have an account</h2>
         <span>Sign up with email and password</span>
 
         <form className="signup-form" onSubmit={this.eh_submit}>
+
           <FormInput
             id="txt_email"
             label="Email"
@@ -82,7 +82,7 @@ class Signup extends React.Component<IProps, IState> {
           <FormInput
             id="txt_displayname"
             label="Display Name"
-            name="displayname"
+            name="displayName"
             type="text"
             value={this.state.displayName}
             onChange={this.eh_inputChange}

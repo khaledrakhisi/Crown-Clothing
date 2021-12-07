@@ -1,13 +1,7 @@
 .signin-signup-page{
     display: flex;
-    flex-direction: column;
-
-    &.signin-col{
-        
-    }
-
-    &.signup-col{
-
-    }
+    flex-direction: row;
+    justify-content: space-between;
+    width: 850px;
 }
 

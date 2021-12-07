@@ -17,7 +17,7 @@ const config: object = {
 //   additionalData : any,
 // }
 
-export const createUserProfileDocument = async (userAuth: firebase.User | null, additionalData: any) => {
+export const createUserProfileDocument = async (userAuth: firebase.User | null, additionalData: object) => {
   if (!userAuth) return;
 
   // console.log(userAuth);
@@ -26,12 +26,11 @@ export const createUserProfileDocument = async (userAuth: firebase.User | null, 
   const userSnapshot = await userRef.get();
 
   if (!userSnapshot.exists) {
-    const { email, displayName } = userAuth;
+    const { email } = userAuth;
 
     try {
       await userRef.set({
-        email,
-        displayName,
+        email,        
         createAt: new Date(),
         ...additionalData,
       });
