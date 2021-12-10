@@ -12,15 +12,16 @@ const config: object = {
   measurementId: "G-F4R1W6NDW0",
 };
 
-// export interface profileDoc { 
-//   userAuth: firebase.User | null, 
+// export interface profileDoc {
+//   userAuth: firebase.User | null,
 //   additionalData : any,
 // }
 
-export const createUserProfileDocument = async (userAuth: firebase.User | null, additionalData: object) => {
+export const createUserProfileDocument = async (
+  userAuth: firebase.User | null,
+  additionalData: object
+) => {
   if (!userAuth) return;
-
-  // console.log(userAuth);
 
   const userRef = firestore.doc(`users/${userAuth.uid}`);
   const userSnapshot = await userRef.get();
@@ -30,15 +31,17 @@ export const createUserProfileDocument = async (userAuth: firebase.User | null, 
 
     try {
       await userRef.set({
-        email,        
+        email,
         createAt: new Date(),
         ...additionalData,
       });
     } catch (error) {
-        let message;
-        if (error instanceof Error) message = error.message;
-        else message = String(error);
-        console.log("Error occurred when creating new user and storing, ", message);
+      let message;
+      
+      if (error instanceof Error) message = error.message;
+      else message = String(error);
+
+      console.log("Error occurred when creating new user and storing, ", message);
     }
   }
 
@@ -49,9 +52,9 @@ firebase.initializeApp(config);
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
-
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const signInWithGoogle = () =>
+  auth.signInWithPopup(provider).catch((error) => console.error(error));
 
 export default firebase;

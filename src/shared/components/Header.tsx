@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
+import { connect } from "react-redux";
 
 import "./Header.scss";
 
@@ -27,7 +28,8 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
         </Link>
 
         {currentLoggedinUser ? (
-          <div className="option" onClick={()=>auth.signOut()}>{`sign out ${currentLoggedinUser.displayName}`}</div>
+          <div className="option" onClick={()=>{auth.signOut();console.log("sign outtttt");}
+          }>{`sign out ${currentLoggedinUser.displayName}`}</div>
         ) : (
           <Link className="option" to="/signin">
             sign in
@@ -38,4 +40,12 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state: any) => {
+  // console.log(">>", state);
+  
+  return {
+    currentLoggedinUser : state.user.currentUser,
+  }
+};
+
+export default connect(mapStateToProps)(Header);

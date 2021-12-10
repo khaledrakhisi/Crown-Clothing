@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../../../shared/components/Button";
 import FormInput from "../../../shared/components/FormInput";
-import { signInWithGoogle } from "../../../shared/utility/firebase.utils";
+import { auth, signInWithGoogle } from "../../../shared/utility/firebase.utils";
 
 import "./Signin.scss";
 
@@ -32,8 +32,20 @@ class Signin extends React.Component<IProps, IState> {
     });
   };
 
-  eh_submit = (e: React.FormEvent<HTMLFormElement>): void => {
+  eh_submit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
+
+    try {
+      await auth.signInWithEmailAndPassword(this.state.email, this.state.password);
+
+      this.setState({
+        email: "",
+        password: "",
+      });
+
+    } catch (error) {
+      console.error(error);
+    }    
   };
 
   render() {
@@ -62,8 +74,8 @@ class Signin extends React.Component<IProps, IState> {
             required
           />
 
-          <div className="buttons"> 
-            <Button id="btn_signin" type="submit">              
+          <div className="buttons">
+            <Button id="btn_signin" type="submit">
               sign in
             </Button>
 
@@ -71,7 +83,7 @@ class Signin extends React.Component<IProps, IState> {
               id="btn_signinwithgoogle"
               onClick={signInWithGoogle}
               isGoogleSignIn
-            >              
+            >
               sign in with google
             </Button>
           </div>
