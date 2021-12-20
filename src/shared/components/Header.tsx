@@ -4,6 +4,7 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
 import { connect } from "react-redux";
+import CardIcon from "./CardIcon";
 
 import "./Header.scss";
 
@@ -28,13 +29,18 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
         </Link>
 
         {currentLoggedinUser ? (
-          <div className="option" onClick={()=>{auth.signOut();console.log("sign outtttt");}
+          <div className="option" onClick={()=>{
+            auth.signOut();
+            console.log("sign outtttt");
+            }
           }>{`sign out ${currentLoggedinUser.displayName}`}</div>
         ) : (
           <Link className="option" to="/signin">
             sign in
-          </Link>
+          </Link>          
         )}
+
+        <CardIcon />
       </div>
     </div>
   );
@@ -48,4 +54,6 @@ const mapStateToProps = (state: any) => {
   }
 };
 
-export default connect(mapStateToProps)(Header);
+const mappedComponent = connect(mapStateToProps);
+
+export default mappedComponent(Header);

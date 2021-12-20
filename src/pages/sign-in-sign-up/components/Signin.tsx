@@ -56,7 +56,7 @@ class Signin extends React.Component<IProps, IState> {
 
         <form onSubmit={this.eh_submit}>
           <FormInput
-            id="txt_email"
+            id="txt_email_signin"
             label="Email"
             name="email"
             type="email"
@@ -65,7 +65,7 @@ class Signin extends React.Component<IProps, IState> {
             required
           />
           <FormInput
-            id="txt_password"
+            id="txt_password_signin"
             label="Password"
             name="password"
             type="password"

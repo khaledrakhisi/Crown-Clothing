@@ -5,7 +5,7 @@ import Signup from "./components/Signup";
 
 import "./SigninPage.scss";
 
-const Signin_Signup: React.FunctionComponent = () => {
+const SigninSignup: React.FunctionComponent = () => {
   return (
     <React.Fragment>
       <div className="signin-signup-page">
@@ -16,4 +16,4 @@ const Signin_Signup: React.FunctionComponent = () => {
   );
 };
 
-export default Signin_Signup;
+export default SigninSignup;
