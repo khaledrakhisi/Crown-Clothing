@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
 import { connect } from "react-redux";
-import CardIcon from "./CardIcon";
+import CardIcon from "./CartIcon";
+import CartDropdown from "./CartDropdown";
 
 import "./Header.scss";
 
 export interface IProps {
   currentLoggedinUser: IUser | null;
+  isCartVisible: Boolean;
 }
 
-const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
+const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser, isCartVisible }) => {
+
+  // const eh_cartIcon_Click = () => {
+  //   isCartVisible = !isCartVisible;
+  //   console.log(isCartVisible);
+    
+  // }
+
   return (
     <div className="header">
       <Link className="logo-container" to="/">
@@ -40,8 +50,13 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser }) => {
           </Link>          
         )}
 
-        <CardIcon />
-      </div>
+        <CardIcon/>                
+        
+      </div>     
+      {
+        isCartVisible ? <CartDropdown /> : null
+      }       
+
     </div>
   );
 };
@@ -51,6 +66,7 @@ const mapStateToProps = (state: any) => {
   
   return {
     currentLoggedinUser : state.user.currentUser,
+    isCartVisible: state.cart.visible,
   }
 };
 

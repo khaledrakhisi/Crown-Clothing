@@ -82,7 +82,7 @@ class Signin extends React.Component<IProps, IState> {
             <Button
               id="btn_signinwithgoogle"
               onClick={signInWithGoogle}
-              isGoogleSignIn
+              isBlueStyle
             >
               sign in with google
             </Button>

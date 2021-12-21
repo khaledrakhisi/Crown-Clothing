@@ -6,12 +6,12 @@ interface IProps{
     id: string,
     type?: "button" | "submit" | "reset",
     onClick?: React.MouseEventHandler<HTMLButtonElement>,
-    isGoogleSignIn?: boolean,
+    isBlueStyle?: boolean,
 }
 
-const Button : React.FunctionComponent<IProps> = ({id, isGoogleSignIn, children, ...otherProps}) => {
+const Button : React.FunctionComponent<IProps> = ({id, isBlueStyle, children, ...otherProps}) => {
     return (
-        <button className= {`${isGoogleSignIn ? "signin-with-google" : ""} custom-button`} id={id} {...otherProps}>{children}</button>
+        <button className= {`${isBlueStyle ? "blue-style" : ""} custom-button`} id={id} {...otherProps}>{children}</button>
     );
 }
 
