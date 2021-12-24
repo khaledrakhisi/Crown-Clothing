@@ -1,23 +1,40 @@
 import React from "react";
+import { connect } from "react-redux";
+
+import { addItemToCart } from "../../../shared/redux/cart/cart-actions";
+import Button from "../../../shared/components/Button";
 import ICollectionItem from "../../../shared/interfaces/collectionItems";
 
 import "./CollectionItem.scss";
+import ICartItem from "../../../shared/interfaces/CartItem";
 
-const CollectionItem: React.FunctionComponent<ICollectionItem> = ({ name, imageUrl, price }) => {
-  
+interface IProps extends ICollectionItem{
+  addItem: (cartItem: ICartItem)=>any;
+}
+
+const CollectionItem: React.FunctionComponent<IProps> = ({ id, name, imageUrl, price, addItem }) => {
+
     return (
       <React.Fragment>
         <div className="collection-item">
           <div className="image" style={{
               backgroundImage: `url("${imageUrl}")`,
-          }} />                  
+          }} >          
+          </div>
           <div className="collection-footer">
               <span className="name">{name}</span>
               <span className="price">${price}</span>
           </div>
+
+          <Button id="btn_addToCart" inverted onClick={() => addItem({ id, name, imageUrl, price, quantity: 1})}>add to cart</Button>
         </div>        
       </React.Fragment>
     );
 }
 
-export default CollectionItem;
+const mapDispatchToProps = (dispatch: any) => ({
+  addItem: (cartItem: ICollectionItem) => dispatch(addItemToCart(cartItem)),
+})
+
+
+export default connect(null, mapDispatchToProps)(CollectionItem);

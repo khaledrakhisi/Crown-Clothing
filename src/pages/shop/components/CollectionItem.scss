@@ -4,6 +4,17 @@
     flex-direction: column;
     height: 350px;
     align-items: center;
+    position: relative;
+
+    &:hover{
+      opacity: .8;
+
+      #btn_addToCart {
+        visibility: visible;
+        opacity: .9;
+      }      
+    }
+    
   
     .image {
       width: 100%;
@@ -11,7 +22,11 @@
       background-size: cover;
       background-position: center;
       margin-bottom: 5px;
-    }
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;      
+    }    
   
     .collection-footer {
       width: 100%;
@@ -28,6 +43,15 @@
       .price {
         width: 10%;
       }
+    }
+    
+    #btn_addToCart {
+      width: 80%;
+      // margin: 20px auto;  
+      position: absolute;
+      bottom: 45px;
+      visibility: hidden;
+      opacity: .7;
     }
   }
   

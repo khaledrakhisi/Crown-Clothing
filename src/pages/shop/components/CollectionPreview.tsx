@@ -12,7 +12,7 @@ const CollectionPreview: React.FunctionComponent<ICollection> = ({id, title, ite
         <div className="preview">
             {items
                 .filter((item, index) => index < 4)
-                .map(({id, ...others}, index) => { return <CollectionItem key={id} id={id} {...others}/> })}
+                .map(({id, ...others}) => { return <CollectionItem key={id} id={id} {...others}/> })}
         </div>
       </div>
   );
