@@ -1,4 +1,4 @@
-import ICollectionItem from "./collectionItems";
+import { ICollectionItem } from "../../pages/shop/components/CollectionItem";
 
 export default interface ICollection {
   id: number;

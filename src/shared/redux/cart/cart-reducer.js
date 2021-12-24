@@ -26,7 +26,10 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
           cartItems: [
             ...currentState.cartItems.map((item) =>
               item.id === action.payload.id
-                ? { ...action.payload, quantity: item.quantity + 1}
+                ? {
+                    ...action.payload,
+                    quantity: item.quantity + action.payload.quantity,
+                  }
                 : item
             ),
           ],

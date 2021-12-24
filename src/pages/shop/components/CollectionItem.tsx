@@ -3,10 +3,16 @@ import { connect } from "react-redux";
 
 import { addItemToCart } from "../../../shared/redux/cart/cart-actions";
 import Button from "../../../shared/components/Button";
-import ICollectionItem from "../../../shared/interfaces/collectionItems";
+import { ICartItem } from "../../../shared/components/CartItem";
 
 import "./CollectionItem.scss";
-import ICartItem from "../../../shared/interfaces/CartItem";
+
+export interface ICollectionItem {
+  id: number;
+  name: string;
+  imageUrl: string;
+  price: number;
+}
 
 interface IProps extends ICollectionItem{
   addItem: (cartItem: ICartItem)=>any;
