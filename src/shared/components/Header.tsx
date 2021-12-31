@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
-import { connect } from "react-redux";
 import CardIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";
 
