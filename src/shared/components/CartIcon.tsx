@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 
 import { ReactComponent as ShoppingBagIcon } from "../../assets/shopping-bag.svg";
 import { toggleCartVisibility } from "../redux/cart/cart-actions";
-import { ICartItem } from "./CartItem";
+// import { ICartItem } from "./CartItem";
+import { selectCartItemsTotalQuantity } from "../redux/cart/cart-selector";
 
 import "./CartIcon.scss";
 
@@ -23,10 +24,12 @@ const mapDispatchToProps = (dispatch: any) => ({
   cartVisibility: () => dispatch(toggleCartVisibility()),
 });
 
-const mapStateToProps = (state: any) => {
-  const items: Array<ICartItem>= state.cart.cartItems;
+const mapStateToProps = (state: never) => {
+  // const items: Array<ICartItem>= state.cart.cartItems;
+  console.log("im am being called");
+  
   return {
-    itemsTotalQuantity: items.reduce((total, currentItem)=> total + currentItem.quantity ,0),
+    itemsTotalQuantity: selectCartItemsTotalQuantity(state),
   }
 }
 
