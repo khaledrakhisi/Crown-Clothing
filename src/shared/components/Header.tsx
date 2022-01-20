@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
 import CardIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";
+import { selectCurrentUser } from "../redux/user/user-selector";
+import { selectCartVisibility } from "../redux/cart/cart-selector";
 
 import "./Header.scss";
 
@@ -61,14 +64,10 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser, isCartVi
   );
 };
 
-const mapStateToProps = (state: any) => {
-  // console.log(">>", state);
-  
-  return {
-    currentLoggedinUser : state.user.currentUser,
-    isCartVisible: state.cart.visible,
-  }
-};
+const mapStateToProps = createStructuredSelector({   
+    currentLoggedinUser : selectCurrentUser,
+    isCartVisible: selectCartVisibility,
+});
 
 const mappedComponent = connect(mapStateToProps);
 

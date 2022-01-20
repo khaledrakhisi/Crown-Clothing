@@ -12,6 +12,8 @@ import { IUser } from "./shared/interfaces/user";
 import { setCurrentUser } from "./shared/redux/user/user-actions";
 
 import "./App.css";
+import { createStructuredSelector } from "reselect";
+import { selectCurrentUser } from "./shared/redux/user/user-selector";
 
 interface IProps {
   setCurrentUser: (user: IUser) => void;
@@ -76,11 +78,9 @@ class App extends React.Component<IProps> {
   }
 }
 
-const mapStateToProps = (state: any) => {
-  return {
-    currentLoggedinUser: state.user.currentUser,
-  };
-};
+const mapStateToProps = createStructuredSelector({
+    currentLoggedinUser: selectCurrentUser
+});
 
 const mapDispatchToProps = (dispatch: any) => ({
   setCurrentUser: (user: IUser) => dispatch(setCurrentUser(user)),
