@@ -14,16 +14,18 @@ interface IProps {
 const CartDropdown: React.FunctionComponent<IProps> = ({ cartItems }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
-      {cartItems.map((item) => (
-        <CartItem key={item.id} {...item} />
-      ))}
+      {cartItems.length
+        ? cartItems.map((item) => <CartItem key={item.id} {...item} />)
+        : <span className="empty-message">Cart is empty</span>}
     </div>
-    <Button isBlueStyle id="btn_checkout">checkout</Button>
+    <Button isBlueStyle id="btn_checkout">
+      checkout
+    </Button>
   </div>
 );
 
-const mapStateToProps = createStructuredSelector({  
-    cartItems: selectCartItems,
+const mapStateToProps = createStructuredSelector({
+  cartItems: selectCartItems,
 });
 
 export default connect(mapStateToProps)(CartDropdown);

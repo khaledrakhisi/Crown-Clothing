@@ -11,7 +11,7 @@ export interface ICartItem extends ICollectionItem {
 const CartItem: React.FunctionComponent<ICartItem> = ({id, name, imageUrl, price, quantity}) => {
   return (
     <div className="cart-item">
-      <img className="cart-thumbnail" src={imageUrl} alt="" />
+      <img className="cart-item-thumbnail" src={imageUrl} alt="" />
       <div className="cart-item-info">
         <span className="cart-item-title">{name}</span>
         <span>

@@ -6,11 +6,21 @@
     border: 1px solid #000;
     display: flex;
     flex-direction: column;
-    // justify-content: space-around;
+    // align-items: center;
+    // justify-content: center;
     padding: 10px;
     top: 80px;
     right: 65px;
     z-index: 5;
+
+    .empty-message{                        
+        font-size: 20px;
+        color: #8e8e8e;
+        // background-color: #000;
+        display: block;        
+        margin-top: 50px;
+        text-align: center;
+    }
 
     .cart-items{
         height: 80%;
@@ -21,5 +31,5 @@
     #btn_checkout{
         width: 95%;
         margin: auto;
-    }    
+    }        
 }
