@@ -1,6 +1,7 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
 import HomePage from "./pages/home/homepage";
 import ShopPage from "./pages/shop/ShopPage";
@@ -10,10 +11,9 @@ import { auth, createUserProfileDocument, } from "./shared/utility/firebase.util
 import firebase from "firebase/compat/app";
 import { IUser } from "./shared/interfaces/user";
 import { setCurrentUser } from "./shared/redux/user/user-actions";
+import { selectCurrentUser } from "./shared/redux/user/user-selector";
 
 import "./App.css";
-import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./shared/redux/user/user-selector";
 
 interface IProps {
   setCurrentUser: (user: IUser) => void;

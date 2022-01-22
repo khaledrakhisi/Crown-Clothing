@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+
 import ISection from "../interfaces/section";
 
 import "./MenuItem.scss";

@@ -1,4 +1,5 @@
 import React from "react";
+
 import SHOP_DATA from "../../shared/data/shopdata";
 import ICollection from "../../shared/interfaces/collection";
 import CollectionPreview from "./components/CollectionPreview";
