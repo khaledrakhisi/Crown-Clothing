@@ -8,10 +8,12 @@ import { auth } from "../utility/firebase.utils";
 import { IUser } from "../interfaces/user";
 import CardIcon from "./CartIcon";
 import CartDropdown from "./CartDropdown";
+
 import { selectCurrentUser } from "../redux/user/user-selector";
 import { selectCartVisibility } from "../redux/cart/cart-selector";
 
 import "./Header.scss";
+
 
 export interface IProps {
   currentLoggedinUser: IUser | null;
@@ -64,10 +66,19 @@ const Header: React.FunctionComponent<IProps> = ({ currentLoggedinUser, isCartVi
   );
 };
 
-const mapStateToProps = createStructuredSelector({   
+const mapStateToProps = createStructuredSelector({ 
     currentLoggedinUser : selectCurrentUser,
     isCartVisible: selectCartVisibility,
 });
+
+// const mapStateToProps = (state: any) => { 
+//   console.log(state.user.currentUser);
+   
+//   return {
+//     currentLoggedinUser : state.user.currentUser,
+//     isCartVisible: state.cart.visible,
+//   }
+// };
 
 const mappedComponent = connect(mapStateToProps);
 

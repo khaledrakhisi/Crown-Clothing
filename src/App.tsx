@@ -12,6 +12,7 @@ import firebase from "firebase/compat/app";
 import { IUser } from "./shared/interfaces/user";
 import { setCurrentUser } from "./shared/redux/user/user-actions";
 import { selectCurrentUser } from "./shared/redux/user/user-selector";
+import CheckoutPage from "./pages/checkout/CheckoutPage";
 
 import "./App.css";
 
@@ -72,6 +73,7 @@ class App extends React.Component<IProps> {
               )
             }
           />
+          <Route exact path="/checkout" component={CheckoutPage}/>
         </Switch>
       </div>
     );
