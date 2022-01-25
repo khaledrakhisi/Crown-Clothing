@@ -4,16 +4,17 @@ import { createStructuredSelector } from "reselect";
 
 import Button from "../../shared/components/Button";
 import { ICartItem } from "../../shared/components/CartItem";
-import { selectCartItems } from "../../shared/redux/cart/cart-selector";
+import { selectCartItems, selectCartItemsTotalPrice } from "../../shared/redux/cart/cart-selector";
 import CheckoutItem from "./components/CheckoutItem";
 
 import "./CheckoutPage.scss";
 
 interface IProps {
   cartItems: Array<ICartItem>;
+  cartItemsTotalPrice: Number,
 }
 
-const CheckoutPage: React.FunctionComponent<IProps> = ({ cartItems }) => {
+const CheckoutPage: React.FunctionComponent<IProps> = ({ cartItems, cartItemsTotalPrice }) => {
   return (
     <div className="checkout-table">
       <div className="checkout-table-header">
@@ -25,13 +26,20 @@ const CheckoutPage: React.FunctionComponent<IProps> = ({ cartItems }) => {
       </div>
       <div className="checkout-table-seperator-solid" />
 
-      {cartItems.map((item) => (
-        <CheckoutItem {...item} />    
-      ))}
+      {cartItems.map((item, i) => {
+        return i < cartItems.length - 1 ? (
+          <React.Fragment>            
+            <CheckoutItem key={i} {...item} />
+            <div className="checkout-table-seperator-dotted" />
+          </React.Fragment>
+        ) : (
+            <CheckoutItem {...item} />
+        );
+      })}
 
       <div className="checkout-table-seperator-solid" />
 
-      <div className="checkout-table-total">TOTAL: $455</div>
+      <div className="checkout-table-total">TOTAL: ${cartItemsTotalPrice}</div>
 
       <div className="checkout-footer">
         <p>*Please use the following credit card for payments*</p>
@@ -47,6 +55,7 @@ const CheckoutPage: React.FunctionComponent<IProps> = ({ cartItems }) => {
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
+  cartItemsTotalPrice: selectCartItemsTotalPrice,
 });
 
 // const mapStateToProps = (state: any) => {

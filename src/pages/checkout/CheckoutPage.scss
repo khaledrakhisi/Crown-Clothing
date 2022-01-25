@@ -1,4 +1,5 @@
 .checkout-table{
+    // background-color: chartreuse;
     display: flex;
     flex-direction: column;
 
@@ -15,23 +16,44 @@
         font-size: 1rem;
         font-weight: bold;
 
-        padding: 10px;
+        // padding: 0 10px;
 
-        text-transform: capitalize;        
+        text-transform: capitalize;     
+        
+        .checkout-table-cell {
+            font-size: 1.2rem;
+            width: 25%;
+            // background-color: brown;
+            margin: 0 3px;
+            // padding: 0 10px;
+
+            &:first-child {
+                width: 18%;
+              }
+            
+            &:last-child {
+              width: 8%;
+              text-align: center;
+            }
+          }
     }
 
     .checkout-table-seperator-solid {
         border: 1px solid #000;
         border-color: #8e8e8e8e;
 
-        margin: 10px;
-    }
-    // .checkout-table-seperator-dotted{
-    //     border-bottom: 1px dotted #8e8e8e;
-    //     border-color: #8e8e8e8e;
+        width: 100%;
 
-    //     margin: 10px;
-    // }
+        margin: 10px auto;
+    }
+    .checkout-table-seperator-dotted{
+        border-bottom: 2px dotted #8e8e8e;
+        border-color: #aca9a98e;        
+
+        width: 95%;
+
+        margin: 5px auto;
+    }
 
     .checkout-table-total{
         text-align: right;
