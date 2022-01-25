@@ -2,35 +2,50 @@
   display: flex;
   align-items: center;
 
-//   width: 65%;
-
   .checkout-table-cell {
     font-size: 1.2rem;
-    width: 25%;
-    // background-color: brown;
+    width: 25%;    
     margin: 0 3px;
 
-    // padding: 0 10px;
-    
     .checkout-table-cell-image {
       width: 90%;
       height: 120px;
       display: flex;
-    //   justify-content: center;
-    //   align-items: center;
     }
 
-    &:first-child{
-        width: 18%;
+    &:first-child {
+      width: 18%;
     }
 
     &:last-child {
       width: 8%;
-      text-align: center;  
+      text-align: center;
+    }
 
-      span{
+    span {
+      cursor: pointer;
+    }
+  }
+
+  .quantity {
+    display: flex;   
+
+    // .decrease, .increase{
+        
+    // }
+    .decrease {
+        margin-right: 10px;
+
         cursor: pointer;
-        }
+    }
+    .increase{
+        margin-left: 10px;
+
+        cursor: pointer;
+    }
+
+    span{
+        font-weight: bold;
     }
   }
 }

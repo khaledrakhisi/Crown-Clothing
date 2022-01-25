@@ -14,3 +14,17 @@ export const addItemToCart = cartItem => {
         payload: cartItem
     }
 }
+
+export const removeItemFromCart = item_id => {
+    return {
+        type: cartActionTypes.CART_REMOVE_ITEM,
+        payload: item_id,
+    }
+}
+
+export const updateQuantity = (item_id, item_quantity, update_number) => {
+    return {
+        type: cartActionTypes.CART_UPDATE_QUANTITY,
+        payload: {item_id, item_quantity, update_number},
+    }
+}

@@ -17,7 +17,6 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
       const existingCartItem = currentState.cartItems.find(
         (item) => item.id === action.payload.id
       );
-
       let newState = null;
       if (existingCartItem) {
         // existingCartItem.quantity++;
@@ -42,6 +41,37 @@ const cartReducer = (currentState = INITIAL_STATE, action) => {
       }
       // console.log(newState);
       return newState;
+
+    case cartActionTypes.CART_REMOVE_ITEM:
+      let filteredState = {
+        ...currentState,
+        cartItems: currentState.cartItems.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+
+      // console.log(filteredState);
+      return filteredState;
+
+    case cartActionTypes.CART_UPDATE_QUANTITY:
+      // ✅ Updating properties in multiple objects
+      const newCartItems = currentState.cartItems.map((item) => {
+        if (item.id === action.payload.item_id) {
+          return {
+            ...item,
+            quantity:
+            action.payload.item_quantity + action.payload.update_number !== 0
+                ? action.payload.item_quantity + action.payload.update_number
+                : action.payload.item_quantity,
+          };
+        }
+        return item;
+      });
+      currentState = {
+        ...currentState,
+        cartItems: newCartItems,
+      };
+      return currentState;
 
     default:
       return currentState;

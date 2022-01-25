@@ -28,12 +28,12 @@ const CheckoutPage: React.FunctionComponent<IProps> = ({ cartItems, cartItemsTot
 
       {cartItems.map((item, i) => {
         return i < cartItems.length - 1 ? (
-          <React.Fragment>            
-            <CheckoutItem key={i} {...item} />
+          <React.Fragment key={item.id}>            
+            <CheckoutItem {...item} />
             <div className="checkout-table-seperator-dotted" />
           </React.Fragment>
         ) : (
-            <CheckoutItem {...item} />
+            <CheckoutItem key={item.id} {...item} />
         );
       })}
 

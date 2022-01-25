@@ -1,6 +1,8 @@
 const cartActionTypes = {
     CART_TOGGLE_VISIBILITY : "CART_TOGGLE_VISIBILITY",
     CART_ADD_ITEM: "CART_ADD_ITEM",
+    CART_REMOVE_ITEM: "CART_REMOVE_ITEM",
+    CART_UPDATE_QUANTITY: "CART_UPDATE_QUANTITY",    
 }
 
 export default cartActionTypes;
