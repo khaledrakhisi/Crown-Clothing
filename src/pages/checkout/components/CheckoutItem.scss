@@ -2,9 +2,14 @@
   display: flex;
   align-items: center;
 
+  &:hover{
+    background-color: #edfdfc;
+    border-radius: 10px;
+  }
+
   .checkout-table-cell {
     font-size: 1.2rem;
-    width: 25%;    
+    width: 25%;
     margin: 0 3px;
 
     .checkout-table-cell-image {
@@ -22,30 +27,33 @@
       text-align: center;
     }
 
+    .delete-button:hover{
+      color: #ff0000;
+    }
+
     span {
       cursor: pointer;
     }
   }
 
   .quantity {
-    display: flex;   
+    display: flex;
 
-    // .decrease, .increase{
-        
-    // }
+    .decrease, .increase{
+      cursor: pointer;      
+    }
+    .decrease:hover, .increase:hover{
+      color: #039b8e;
+    }
     .decrease {
-        margin-right: 10px;
-
-        cursor: pointer;
+      margin-right: 10px;      
     }
-    .increase{
-        margin-left: 10px;
+    .increase {
+      margin-left: 10px;
+    }    
 
-        cursor: pointer;
-    }
-
-    span{
-        font-weight: bold;
+    span {
+      font-weight: bold;
     }
   }
 }

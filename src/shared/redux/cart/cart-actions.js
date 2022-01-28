@@ -15,9 +15,9 @@ export const addItemToCart = cartItem => {
     }
 }
 
-export const removeItemFromCart = item_id => {
+export const DeleteItemFromCart = item_id => {
     return {
-        type: cartActionTypes.CART_REMOVE_ITEM,
+        type: cartActionTypes.CART_DELETE_ITEM,
         payload: item_id,
     }
 }
