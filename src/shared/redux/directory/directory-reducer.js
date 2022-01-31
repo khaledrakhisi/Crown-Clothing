@@ -1,4 +1,5 @@
 import SECTIONS_DATA from "../../data/sectionsdata";
+
 const INITIAL_STATE = {
     sections: [...SECTIONS_DATA],
 };

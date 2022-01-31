@@ -19,7 +19,6 @@ interface IProps extends ICollectionItem{
 }
 
 const CollectionItem: React.FunctionComponent<IProps> = ({ id, name, imageUrl, price, addItem }) => {
-
     return (
       <React.Fragment>
         <div className="collection-item">
