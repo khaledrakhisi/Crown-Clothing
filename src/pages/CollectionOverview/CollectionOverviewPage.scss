@@ -1,0 +1,22 @@
+.collection-overview{
+
+    display: flex;
+    flex-direction: column;
+
+    .collection-overview-header{
+        display: flex;
+        flex-direction: row;
+
+        .collection-overview-title{         
+            font-size: 28px;
+            margin-bottom: 25px;
+
+            text-transform: uppercase;
+        }
+    }
+
+    .collection-items{
+        display: flex;
+        flex-direction: row;
+    }
+}
