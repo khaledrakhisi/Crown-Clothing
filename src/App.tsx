@@ -13,7 +13,6 @@ import { IUser } from "./shared/interfaces/user";
 import { setCurrentUser } from "./shared/redux/user/user-actions";
 import { selectCurrentUser } from "./shared/redux/user/user-selector";
 import CheckoutPage from "./pages/checkout/CheckoutPage";
-import CollectionOverviewPage from "./pages/CollectionOverview/CollectionOverviewPage";
 
 import "./App.css";
 
@@ -57,7 +56,6 @@ class App extends React.Component<IProps> {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={ShopPage} />
-          <Route exact path="/shop/:collection" component={CollectionOverviewPage} />
           <Route exact path="/signin"
             render={() =>
               this.props.currentLoggedinUser ? (
