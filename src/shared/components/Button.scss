@@ -32,12 +32,15 @@
 
     &.inverted{
       background-color: white;
-      color: black;
+      color: #414040;
       border: 1px solid black;
       
       &:hover{
-        background-color: black;
+        background-color: #414040;
         color: white;
+      }
+      &:active{
+        background-color: #000;
       }
     }
     
