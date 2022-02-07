@@ -8,9 +8,7 @@ export const selectCollections = createSelector(
   (shopData) => shopData.collections
 );
 
-export const selectCollection = c => createSelector(
+export const selectCollection = collectionName => createSelector(
         [selectCollections],
-        (collections) => {let r = collections[0];
-        console.log(r);
-        return r;  }
+        (collections) => collections.find(item => item.routeName === collectionName)
     );
