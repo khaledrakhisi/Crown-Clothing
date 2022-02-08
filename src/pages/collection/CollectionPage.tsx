@@ -35,6 +35,6 @@ const collectionPage: React.FunctionComponent<IProps> = ({collection}) => {
 
 const mapStateToProps = (state: never, ownProps: OwnProps) => ({
     collection: selectCollection(ownProps.match.params.collectionName)(state),
-  });
+});
 
 export default connect(mapStateToProps)(collectionPage);
