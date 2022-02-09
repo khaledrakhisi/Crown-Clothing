@@ -1,7 +1,11 @@
 .collection-page{
     .collectionpage-header{
         .collection-page-title{
-            
+            font-weight: bold;
+            font-size: 16px;
         }
+    }
+    .collection-page-items{
+        display: flex;
     }
 }

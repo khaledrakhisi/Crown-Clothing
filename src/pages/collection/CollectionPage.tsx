@@ -24,11 +24,13 @@ const collectionPage: React.FunctionComponent<IProps> = ({collection}) => {
   return (
     <div className="collection-page">
       <div className="collection-page-header">
-        <span className="collection-page-title">{""}</span>
+        <span className="collection-page-title">{collection.title}</span>
       </div>
-      {collection.items.map((item) => {
-        return <CollectionItem key={item.id} {...item} />;
-      })}
+      <div className="collection-page-items">
+        {collection.items.map((item) => {
+          return <CollectionItem key={item.id} {...item} />;
+        })}
+      </div>
     </div>
   );
 };
