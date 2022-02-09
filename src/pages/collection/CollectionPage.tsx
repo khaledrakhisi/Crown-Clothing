@@ -28,8 +28,8 @@ const collectionPage: React.FunctionComponent<IProps> = ({collection}) => {
       </div>
       <div className="collection-page-items">
         {collection.items.map((item) => {
-          return <CollectionItem key={item.id} {...item} />;
-        })}
+          return <CollectionItem key={item.id} {...item} /> 
+        })}        
       </div>
     </div>
   );
