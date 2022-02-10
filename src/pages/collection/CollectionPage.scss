@@ -13,12 +13,12 @@
     }
 
     .collection-page-items{        
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 10px;
 
-        // height: 100%;
-
-        
+        .collection-item{
+            width: 95%;
+        }
     }
 }
