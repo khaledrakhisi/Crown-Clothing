@@ -12,11 +12,6 @@ const config: object = {
   measurementId: "G-F4R1W6NDW0",
 };
 
-// export interface profileDoc {
-//   userAuth: firebase.User | null,
-//   additionalData : any,
-// }
-
 export const createUserProfileDocument = async (
   userAuth: firebase.User | null,
   additionalData: object
