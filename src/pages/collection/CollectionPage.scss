@@ -3,13 +3,16 @@
     // height: 100vh;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 
     .collection-page-header{
+        text-align: center;
+        margin-bottom: 10px;
+        
         .collection-page-title{
             font-weight: bold;
-            font-size: 28px;
-        }
+            font-size: 32px;
+        }        
     }
 
     .collection-page-items{        
