@@ -9,7 +9,6 @@ import { toggleCartVisibility } from "../redux/cart/cart-actions";
 
 import "./CartDropdown.scss";
 
-
 interface IProps {
   cartItems: Array<ICartItem>;
   history: any;

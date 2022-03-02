@@ -16,7 +16,6 @@ import CheckoutPage from "./pages/checkout/CheckoutPage";
 
 import "./App.css";
 
-
 interface IProps {
   setCurrentUser: (user: IUser) => void;
   currentLoggedinUser: IUser | null;
