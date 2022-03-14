@@ -11,6 +11,7 @@ const CollectionPreview: React.FunctionComponent<ICollection> = ({id, title, ite
         <h1 className="title">{title.toUpperCase()}</h1>
         <div className="preview">
             {items
+            
                 .filter((item, index) => index < 4)
                 .map(({id, ...others}) => { return <CollectionItem key={id} id={id} {...others}/> })}
         </div>
