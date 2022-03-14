@@ -25,8 +25,6 @@ class Signin extends React.Component<IProps, IState> {
   eh_inputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.currentTarget;
 
-    // console.log(name);
-
     this.setState({
       ...this.state,
       [name]: value,
