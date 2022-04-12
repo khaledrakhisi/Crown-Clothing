@@ -35,16 +35,18 @@ class Signin extends React.Component<IProps, IState> {
     e.preventDefault();
 
     try {
-      await auth.signInWithEmailAndPassword(this.state.email, this.state.password);
+      await auth.signInWithEmailAndPassword(
+        this.state.email,
+        this.state.password
+      );
 
       this.setState({
         email: "",
         password: "",
       });
-
     } catch (error) {
       console.error(error);
-    }    
+    }
   };
 
   render() {
